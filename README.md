@@ -7,7 +7,7 @@
 <hr>
 
 In this tutorial we will guide you step by step how to integrate your MetaMask
-wallet and to build simple DApp on Ethereum Kovan testnet. For this to
+wallet and build simple DApp on Ethereum Kovan testnet. For this to
 achieve we will use Python based smart contract developing and testing framework
 Brownie. And for integration with our front-end and smart contract we will Ethers.js
 library.
