@@ -366,7 +366,8 @@ Let's now define Java Script file.
             console.log("You just add new name");
         };
 
-        // Here we are picking up desired index from our front-end input and passing as argument to smart contract returnName function. Ones we get this value from blockchain we can display to user name
+        // Here we are picking up desired index from our front-end input and passing as argument to smart contract returnName function. 
+        // Ones we get this value from blockchain we can display to user name
 
         read.onclick = async () => {
             let readNameRes = readName.value;
