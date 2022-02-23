@@ -42,7 +42,7 @@ Creating virtual environment
     $ pipenv shell
     $ ...Successfully created virtual environment!
 
-Install pipx and install eth-brownie (this way is recommended by Brownie)
+Install pipx, eth-brownie and ganache-cli (this way is recommended by Brownie)
 
     (your_venv)$ python3 -m pip install pipx
     (your_venv)$ python3 -m pipx ensurepath
@@ -53,6 +53,7 @@ Install Brownie
     (your_venv)$ pipx install eth-brownie
     (your_venv)$ ...done! ✨ 🌟 ✨
 
+Installing Ganache  (Ganache is used to create blockchain in local enviroment on which we can test our contracts. Brownie under the hood use Ganachse for same purpose)
     (your_venv)$ npm install -g ganache-cli
     (your_venv)$ ganache-cli --version
     (your_venv)$ Ganache CLI v6.12.2 (ganache-core: 2.13.2)
