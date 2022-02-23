@@ -53,7 +53,7 @@ Install Brownie
     (your_venv)$ pipx install eth-brownie
     (your_venv)$ ...done! ✨ 🌟 ✨
 
-Installing Ganache  (Ganache is used to create blockchain in local enviroment on which we can test our contracts. Brownie under the hood use Ganachse for same purpose)
+Installing Ganache  (Ganache is used to create blockchain in local enviroment on which we can test our contracts. Brownie under the hood use Ganache for same purpose)
 
     (your_venv)$ npm install -g ganache-cli
     (your_venv)$ ganache-cli --version
