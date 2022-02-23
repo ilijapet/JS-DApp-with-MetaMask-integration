@@ -136,7 +136,7 @@ Cool now we have our smart contract compiled. There is two additional steps befo
 1. Write deploy script
 2. Deploy smart contract to Kovan testnet
 
-But before we deploy our contract to Kovan test we will need few fake ETH to cover cost of our transaction on test net. And this test ETH you can get by passing your ETH addresses from MetaMask to following two sites (here is where you can get address in MetaMask)
+But before we deploy our contract to Kovan test net we will need few fake ETH to cover cost of our transaction on test net. And this test ETH you can get by passing your ETH addresses from MetaMask to following two sites (here is where you can get address in MetaMask)
 
 <br>
 <img src=".\Blog_picture\1.png" width="400">
