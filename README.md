@@ -355,7 +355,9 @@ Let's now define Java Script file.
             }
         };
 
-        // Button which pick up input name we give and pass as argument to addName function from our smart contract. Take a look on syntax contract.function(argument) Basically we create this contract with ethers.js Contract object that bundle our 1) smart contract address 2) ABI 3) Meta Mask signer
+        // Button which pick up input name we give and pass as argument to addName function from our smart contract. Take a look on syntax 
+        // contract.function(argument) Basically we create this contract with ethers.js Contract object that bundle our 
+        // 1) smart contract address 2) ABI 3) Meta Mask signer
 
         update.onclick = async () => {
             let newName = updateName.value;
