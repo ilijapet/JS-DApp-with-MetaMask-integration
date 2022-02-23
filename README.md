@@ -99,7 +99,7 @@ Inside that file past following code
         string[] public name;
 
         // This function take string input and append (write to blockchaine) to
-        // our global variable (list)
+        // our state variable (list)
 
         function addName(string memory _name) public {
             name.push(_name);
