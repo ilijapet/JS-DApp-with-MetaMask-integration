@@ -24,8 +24,8 @@ basically have role to be layer between front-end and blockchain and deployed sm
 
 <hr>
 
-We assume that you have Python >= 3.6.0, NVM, NPM, Node and MetaMask extension
-already installed on your local machine. If you don't have please go first
+We assume that you already have Python >= 3.6.0, NVM, NPM, Node and MetaMask extension
+installed on your local machine. If you don't have please go first
 install this and then continue with rest of tutorial:
 
     $ md SimpleMetaMaskIntegration && cd SimpleMetaMaskIntegration
