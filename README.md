@@ -105,7 +105,7 @@ Inside that file past following code
             name.push(_name);
         }
 
-        // This function pull name from index position we would like to see and
+        // This function pull name from indexed position we would like to see and
          show us on the front-end (read from blockchain)
 
         function returnName(uint256 _index) public view returns (string memory) {
