@@ -454,4 +454,4 @@ And you should see something like this
 
 <img src="./Blog_picture/5.png">
 
-Now you should be able to connect your Meta Mask, submit transaction to your smart contract and read from it. And this basic pattern will merge again and again through all your future DApps.
+Now you should be able to connect your Meta Mask, submit transaction to your smart contract and read from it. And this basic pattern will emerge again and again through all your future DApps.
