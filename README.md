@@ -88,7 +88,7 @@ or if folder is empty simply
 
 Go to Brownie folder `/contract` and create file `SimpleContract.sol`
 
-Inside that file pass following code
+Inside that file past following code
 
     // SPDX-License-Identifier: MIT
 
