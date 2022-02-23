@@ -242,7 +242,7 @@ Here Brownie informs us that deployment was successful and our smart contract is
 
 <br>
 
-Cool thing about Brownie is that it automatically take care about all addresses to which we deploy some version of our contract. And this is how we can always go back to some previous version. If you go to `./build/` deployments folder you will find map.json file. And inside that file you will see all kovan test net address to which your smart contract has been deployed.
+Cool thing about Brownie is that it automatically take care about all addresses to which we deploy some version of our contract. And this is how we can always go back to some previous version. If you go to `./build/` deployments folder you will find map.json file. And inside that file you will see all kovan test net addresses to which your smart contract has been deployed.
 
         {
         "42": {
