@@ -172,7 +172,7 @@ And inside .env file please add following elements
 
 <br>
 
-    BUT BEAFORE YOU CONTINUE FURTHER PLEASE:
+BUT BEAFORE YOU CONTINUE FURTHER PLEASE:
 
 1. DONT USE PRIVATE KEYS FROM ACCOUNT THAT YOU USE FOR ANY KIND OF REAL TRANSACTION. OPEN NEW PROFILE IN YOUR LET'S SAY BRAVE BROWSER AND INSDE THAT NEW PROFILE START INSTALL AND START NEW INSTANCE OF METAMASK EXTENSION (WITH NEW SEED PHRASE). AND USE ONLY THAT WORKING PROFILE WHILE EXPERIMENTING AND DEVLOPING YOUR DApp.
 
@@ -451,4 +451,4 @@ And you should see something like this
 
 <img src="./Blog_picture/5.png">
 
-Now you should be able to connect your Meta Mask, submit transaction to your smart contract and read from it. And this basic patter will merge again and again through all your future DApps.
+Now you should be able to connect your Meta Mask, submit transaction to your smart contract and read from it. And this basic pattern will merge again and again through all your future DApps.
