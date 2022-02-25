@@ -2,7 +2,7 @@
 
 <hr>
 
-## Simple DApp with MetaMask integration
+## javascript DApp with MetaMask integration
 
 <hr>
 
