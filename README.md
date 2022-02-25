@@ -316,7 +316,7 @@ And here is how HTML file can look like
     </html>
     
 ## Helper file
-In this file we put 1) contract deployment address 2) ABI 3) signer and produce contract object which is our interface to smart contract functions. To be abel to import your file insde index.js with require() import syntax you will need to put your file somewhere on PATH (copy helper.js to node-modules folder in poject root directory. If there is no one please make it). After this you will be able to use  const { contract } = require("./helpers"); syntax inside your index.js. 
+In this file we put 1) contract deployment address 2) ABI 3) signer and produce contract object which is our interface to smart contract functions. To be abel to import your file insde index.js with require() import syntax you will need to put your file somewhere on PATH (copy helper.js to node_modules folder in poject root directory). After this you will be able to use  const { contract } = require("./helpers"); syntax inside your index.js. 
 
    
     const { ethers } = require("ethers");
