@@ -509,13 +509,13 @@ In same folder create style.css And inside past following code
 
 Here we will browserify our JS file and make it useful inside our HTML code
 
-yarn add browserify
+    yarn add browserify
 
 or 
 
-npm install -g browserify
+    npm install -g browserify
 
-yarn browserify ./folder_to_your/index.js --standalone bundle -o ./folder_to_your_cleint_folder/bundle.js
+    yarn browserify ./folder_to_your/index.js --standalone bundle -o ./folder_to_your_cleint_folder/bundle.js
 
 (if you go back to HTML you will see that we dont import index.js original verison, instead we import in our HTML bundle.js (browserfied verison of index.js)
 
