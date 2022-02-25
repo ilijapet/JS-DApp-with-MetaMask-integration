@@ -289,7 +289,7 @@ Ok lets start from some basic HTML. We will have 3 buttons:
 
 And here is how HTML file can look like
 
-    <!DOCTYPE html>
+   <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -298,27 +298,28 @@ And here is how HTML file can look like
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Three button DApp</title>
         <link rel="stylesheet" href="./style.css">
-        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     </head>
 
     <body>
+        <script type="module" src="./bundle.js"></script>
         <h1> Simple DApp & Meta Mask integration </h1>
-        <button class="btnConnect" id="connectBtn">Connect MetaMask wallet</button>
+        <button class="btnConnect" id="connectBtn" onclick="bundle.connect()">Connect MetaMask wallet</button>
 
         <input type="text" id="inputName" placeholder="name">
-        <button type="submit" class="btnUpdate" id="updateBtn">Update name</button>
+        <button type=" submit" class="btnUpdate" id="updateBtn" onclick="bundle.update()">Update name</button>
 
-        <button type="submit" class="btnRead" id="readBtn">Read name</button>
+        <button type="submit" class="btnRead" id="readBtn" onclick="bundle.read()">Read name</button>
         <input type="number" id="readName" placeholder="No. from list">
         <span id="returnValue"> </span>
 
-        <script type="module" src="./index.js"></script>
     </body>
-
     </html>
     
 ## Helper file
-In this file we put 1) contract deployment address 2) ABI 3) signer and produce contract object which is our interface to smart contract functions
+In this file we put 1) contract deployment address 2) ABI 3) signer and produce contract object which is our interface to smart contract functions. To be abel to import you file insde index.js with require you will need to put you file somewhere on path (cp helper.js to node-modules folder in poject root directory. If there is no one please make it). After this you will be able to use  const { contract } = require("./helpers"); syntax inside your index.js. 
+
+   
+    const { ethers } = require("ethers");
 
     const abi = [
       {
@@ -374,8 +375,7 @@ In this file we put 1) contract deployment address 2) ABI 3) signer and produce 
       },
     ];
 
-    // contract deploymetn address.
-    const contractAddress = "0xd26bD305637401B029DBd41d895bDE215f1e7e56";
+    const contractAddress = "0xF9d10B6275A6881D470dcd69926B12B6F58eb997";
 
     // Here we are getting Ethereum provider. Node through which we can speak to Ethereum blockchain
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -389,7 +389,7 @@ In this file we put 1) contract deployment address 2) ABI 3) signer and produce 
     // transaction and to pay fee if we make chnage in blockchaine state
     const contract = new ethers.Contract(contractAddress, abi, signer);
 
-    export { contract };
+    module.exports = { contract };
 
 
 ## Java Script file
@@ -399,61 +399,49 @@ In this file we put 1) contract deployment address 2) ABI 3) signer and produce 
 
 Let's now define Java Script file.
 
-        import { contract } from "./helpers";
-
-        // Picking up elements from HTML
-        const connect = document.getElementById("connectBtn");
-        const read = document.getElementById("readBtn");
-        const update = document.getElementById("updateBtn");
-        const updateName = document.getElementById("inputName");
-        const readName = document.getElementById("readName");
-        const returnValue = document.getElementById("returnValue");
-
-        // Over ethereum object inside window object check on every load if Meta Mask is instaled.
-        // If MM is not installed alert user to install it
+        const { ethers } = require("ethers");
+        const { contract } = require("./helpers");
 
         function init() {
-            if (typeof window.ethereum !== "undefined") {
-                console.log("MetaMask is installed!");
-            } else {
-                alert("Please install Meta Mask");
-            }
+          if (typeof window.ethereum !== "undefined") {
+            console.log("MetaMask is installed!");
+          } else {
+            alert("Please install Meta Mask");
+          }
         }
 
-        // Connect button for Meta Mask
-        connect.onclick = async () => {
-            try {
-                await ethereum.request({ method: "eth_requestAccounts" });
-                connect.innerHTML = "Connected";
-            } catch (error) {
-                console.log("Could not get a wallet connection", error);
-            }
+        const connect = async () => {
+          try {
+            await ethereum.request({ method: "eth_requestAccounts" });
+            document.getElementById("connectBtn").innerHTML = "Connected";
+          } catch (error) {
+            console.log("Could not get a wallet connection", error);
+          }
         };
 
-        // Button which pick up input name we give and pass as argument to addName function from our smart contract. Take a look on syntax 
-        // contract.function(argument) Basically we create this contract with ethers.js Contract object that bundle our 
-        // 1) smart contract address 2) ABI 3) Meta Mask signer
-
-        update.onclick = async () => {
-            let newName = updateName.value;
-            await contract.addName(newName);
-            inputName.value = "";
-            console.log("You just add new name");
+        const update = async () => {
+          let newName = document.getElementById("inputName").value;
+          console.log(newName);
+          await contract.addName(newName);
+          document.getElementById("inputName").value = "";
+          console.log("You just add new name");
         };
 
-        // Here we are picking up desired index from our front-end input and passing as argument to smart contract returnName function. 
-        // Ones we get this value from blockchain we can display to user name
-
-        read.onclick = async () => {
-            let readNameRes = readName.value;
-            let name = await contract.returnName(readNameRes);
-            returnValue.textContent = name;
-            readName.value = "";
+        const read = async () => {
+          let readNameRes = document.getElementById("readName").value;
+          console.log(readNameRes);
+          let name = await contract.returnName(readNameRes);
+          console.log(name);
+          document.getElementById("returnValue").textContent = name;
+          document.getElementById("readName").value = "";
         };
 
         window.addEventListener("load", () => {
-             init();
+          init();
         });
+
+        module.exports = { connect, update, read };
+
 
 ## CSS file
 
@@ -516,6 +504,22 @@ In same folder create style.css And inside past following code
 ## Final step
 
 <hr>
+
+### Browserify
+
+Here we will browserify our JS file and make it useful inside our HTML code
+
+yarn add browserify
+
+or 
+
+npm install -g browserify
+
+yarn browserify ./folder_to_your/index.js --standalone bundle -o ./folder_to_your_cleint_folder/bundle.js
+
+(if you go back to HTML you will see that we dont import index.js original verison, instead we import in our HTML bundle.js (browserfied verison of index.js)
+
+
 
 And now from client folder start local sevrver to see if everything works as we expect
 
